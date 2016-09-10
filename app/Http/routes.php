@@ -35,8 +35,9 @@ Route::get('product/{id}/deleteMsg','\App\Http\Controllers\ProductController@Del
 /********************* product ***********************************************/
 
 //api
-Route::get('api/products', 'ApiController@index');
-Route::get('api/categories/{id}', 'ApiController@show');
+Route::get('api/products', 'ApiController@listProducts');
+Route::get('api/categories/{id}', 'ApiController@listCategoryProducts');
+Route::get('api/categories', 'ApiController@listCategories');
 
 Route::post('api/register', 'TokenAuthController@register');
 Route::post('api/login', 'TokenAuthController@login');

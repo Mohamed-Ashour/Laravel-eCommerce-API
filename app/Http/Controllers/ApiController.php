@@ -22,13 +22,24 @@ class ApiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function listProducts()
     {
         return response()->json(
             Product::orderBy('created_at', 'desc')->get()
         );
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function listCategories()
+    {
+        return response()->json(
+            Category::orderBy('created_at', 'desc')->get()
+        );
+    }
 
     /**
      * Display the specified resource.
@@ -36,7 +47,7 @@ class ApiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function listCategoryProducts($id)
     {
         return response()->json(
             Category::find($id)->products()->get()
