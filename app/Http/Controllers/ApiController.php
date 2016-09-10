@@ -49,9 +49,15 @@ class ApiController extends Controller
      */
     public function listCategoryProducts($id)
     {
-        return response()->json(
-            Category::find($id)->products()->get()
-        );
+        if (Category::find($id)) {
+            return response()->json(
+                Category::find($id)->products()->get()
+            );
+        } else {
+            return response()->json(
+                ['error' => 'category not found']
+            );
+        }
     }
 
 }
