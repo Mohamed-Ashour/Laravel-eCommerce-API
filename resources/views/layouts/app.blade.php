@@ -36,6 +36,10 @@
             box-shadow: none;
         }
 
+        [type="checkbox"]+label:before {
+            border:2px solid #26A69A;
+        }
+
     </style>
 </head>
 <body id="app-layout">
